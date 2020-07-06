@@ -46,10 +46,17 @@ namespace PhoneBookApp.Controllers
             }
             var user = await GetCurrentUserAsync();
             var _phoneBook = _phoneBookRepository.GetAll().Include(x => x.Entries).FirstOrDefault(n => n.Name == user.Email);
-            return Ok(_phoneBook.Entries
-                .Where(pb => pb.Name.Contains(searchString) || pb.PhoneNumber.Contains(searchString) || searchString == "")
-                .Select(n => new PhoneBookEntryViewModel { EntryName = n.Name, PhoneNumber = n.PhoneNumber })
-                .ToList());
+            if (_phoneBook != null)
+            {
+                return Ok(_phoneBook.Entries
+                    .Where(pb => pb.Name.Contains(searchString) || pb.PhoneNumber.Contains(searchString) || searchString == "")
+                    .Select(n => new PhoneBookEntryViewModel { EntryName = n.Name, PhoneNumber = n.PhoneNumber })
+                    .ToList());
+            }
+            else
+            {
+                return Ok();
+            }
         }
 
         [HttpPost]

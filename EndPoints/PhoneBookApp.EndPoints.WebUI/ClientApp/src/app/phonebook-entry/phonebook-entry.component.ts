@@ -32,7 +32,10 @@ export class PhoneBookEntryComponent {
       this.http.post(this.baseUrl + 'phonebook', entry).subscribe(r => {
         alert('ok');
         this.router.navigateByUrl('/phonebook');
-      }, error => console.error(error));
+      }, error => {
+        alert('error');
+        console.error(error);
+      });
     });
   }
 
