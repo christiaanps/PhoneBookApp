@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Common\PhoneBookAppContextFactory.cs" />
+		<Compile Remove="Entries\PersonTagConfig.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.1.5" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Domain\PhoneBookApp.Domain.Contracts\PhoneBookApp.Domain.Contracts.csproj" />
+		<ProjectReference Include="..\..\Domain\PhoneBookApp.Domain.Core\PhoneBookApp.Domain.Core.csproj" />
+	</ItemGroup>
+
+</Project>

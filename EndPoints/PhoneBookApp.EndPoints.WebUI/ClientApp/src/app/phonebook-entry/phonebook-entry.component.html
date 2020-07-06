@@ -1,0 +1,27 @@
+<div class=" modal-header">
+  <h3>Entry</h3>
+  <div class="btn-toolbar pull-right">
+    <button class="btn btn-primary btn-sm" (click)="addEntry()">Save Entry</button>
+    <button class="btn btn-primary btn-sm" (click)="close()">Close</button>
+  </div>
+</div>
+<div class="modal-body">
+  <div>
+    <div class="row col-md-12">
+      <br>
+    </div>
+    <div class="row col-md-12">
+      <fieldset>
+        <legend>New Entry</legend>
+        <div class="row">
+          <label class="control-label col-md-6">Name</label>
+          <input class="col-md-6" [(ngModel)]="name" required />
+        </div>
+        <div class="row">
+          <label class="control-label col-md-6" data-bind="value: phoneNumber">Phone Number</label>
+          <input class="col-md-6" [(ngModel)]="phoneNumber" required />
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

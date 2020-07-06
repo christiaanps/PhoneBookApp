@@ -1,0 +1,32 @@
+<h1 id="tableLabel">Phone Book</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+
+<div class="row col-md-12">
+  <fieldset>
+    <div class="row">
+      <input class="col-md-6" [(ngModel)]="txtSearch" required />
+      <button class="btn btn-primary" (click)="search()">Search</button>
+    </div>
+  </fieldset>
+</div>
+
+<p *ngIf="!phoneBookEntries || phoneBookEntries.length == 0"><em>No Data...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="phoneBookEntries && phoneBookEntries.length > 0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let phoneBookEntry of phoneBookEntries">
+      <td>{{ phoneBookEntry.entryName }}</td>
+      <td>{{ phoneBookEntry.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="addEntry()">Add Entry</button>
